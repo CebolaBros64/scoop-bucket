@@ -1,0 +1,46 @@
+{
+    "version": "1.5",
+    "description": "ROM Properties Page shell extension",
+    "homepage": "https://github.com/GerbilSoft/rom-properties",
+    "license": "GPL-2.0",
+    "url": "https://github.com/GerbilSoft/rom-properties/releases/download/v1.5/rom-properties_1.5-windows.zip",
+    "installer": {
+        "architecture": {
+            "64bit": {
+                "script": "regsvr32 i386/rom-properties.dll; regsvr32 amd64/rom-properties.dll"
+            },
+            "32bit": {
+                "script": "regsvr32 i386/rom-properties.dll"
+            }
+        }
+    },
+    "uninstaller": {
+        "architecture": {
+            "64bit": {
+                "script": "regsvr32 i386/rom-properties.dll; regsvr32 amd64/rom-properties.dll"
+            },
+            "32bit": {
+                "script": "regsvr32 i386/rom-properties.dll"
+            }
+        }
+    },
+    "bin": {
+        "architecture": {
+            "64bit": [
+                "rpcli.exe",
+                "rp-config.exe",
+                "amd64/rp-download.exe"
+            ],
+            "32bit": [
+                "rpcli.exe",
+                "rp-config.exe",
+                "i386/rp-download.exe"
+            ]
+        }
+    },
+    "checkver": {
+        "url": "https://github.com/GerbilSoft/rom-properties/releases/latest",
+        "re": "v(\\d+\\.\\d+)"
+    },
+    "autoupdate": "https://github.com/GerbilSoft/rom-properties/releases/download/v$version/rom-properties_$version-windows.zip"
+}
