@@ -38,6 +38,7 @@
             ]
         }
     },
+	"notes" : "You have to restart your computer for the changes to be applied.",
     "checkver": {
         "github": "https://github.com/GerbilSoft/rom-properties/"
     },
