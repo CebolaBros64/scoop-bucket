@@ -13,5 +13,7 @@
     "checkver": {
         "github": "https://github.com/rhmodding/Tickompiler/"
     }
-    "autoupdate": "https://github.com/rhmodding/Tickompiler/releases/download/v$version/tickompiler.jar"
+    "autoupdate": {
+		"url": "https://github.com/rhmodding/Tickompiler/releases/download/v$version/tickompiler.jar"
+	}
 }
