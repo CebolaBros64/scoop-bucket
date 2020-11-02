@@ -1,44 +1,49 @@
 {
-    "version": "1.5",
+    "version": "1.7.3",
     "description": "ROM Properties Page shell extension",
     "homepage": "https://github.com/GerbilSoft/rom-properties",
     "license": "GPL-2.0",
-    "url": "https://github.com/GerbilSoft/rom-properties/releases/download/v1.5/rom-properties_1.5-windows.zip",
-    "installer": {
-        "architecture": {
-            "64bit": {
-                "script": "regsvr32 i386/rom-properties.dll; regsvr32 amd64/rom-properties.dll"
-            },
-            "32bit": {
-                "script": "regsvr32 i386/rom-properties.dll"
-            }
-        }
+    "url": "https://github.com/GerbilSoft/rom-properties/releases/download/v1.7.3/rom-properties_1.7.3-windows.zip",
+    "pre_install": [
+        "if (!(is_admin)) {",
+        "    error \"Administrator rights are required to install $app.\"",
+        "    exit 1",
+        "}"
+    ],
+	"installer": {
+        "script": [
+            "if ($architecture -eq '64bit') {",
+            "   sudo \"$env:COMSPEC\" /c \"regsvr32 /s \"$dir\\amd64\\rom-properties.dll\"\"",
+            "}",
+			"sudo \"$env:COMSPEC\" /c \"regsvr32 /s \"$dir\\i386\\rom-properties.dll\"\""
+			"Stop-Process -Name explorer"
+        ]
     },
     "uninstaller": {
-        "architecture": {
-            "64bit": {
-                "script": "regsvr32 i386/rom-properties.dll; regsvr32 amd64/rom-properties.dll"
-            },
-            "32bit": {
-                "script": "regsvr32 i386/rom-properties.dll"
-            }
-        }
+        "script": [
+            "if ($architecture -eq '64bit') {",
+            "   sudo \"$env:COMSPEC\" /c \"regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"\"",
+            "}",
+			"sudo \"$env:COMSPEC\" /c \"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"\""
+			"Stop-Process -Name explorer"
+        ]
     },
-    "bin": {
-        "architecture": {
-            "64bit": [
+    "architecture": {
+        "64bit": {
+            "bin": [
                 "rpcli.exe",
                 "rp-config.exe",
                 "amd64/rp-download.exe"
-            ],
-            "32bit": [
+            ]
+        },
+        "32bit": {
+            "bin": [
                 "rpcli.exe",
                 "rp-config.exe",
                 "i386/rp-download.exe"
             ]
         }
     },
-	"notes" : "You have to restart your computer for the changes to be applied.",
     "checkver": {
         "github": "https://github.com/GerbilSoft/rom-properties/"
     },
