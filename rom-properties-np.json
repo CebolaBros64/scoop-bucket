@@ -21,6 +21,11 @@
     },
     "uninstaller": {
         "script": [
+		    "if (!(is_admin)) {",
+            "    error \"Administrator rights are required to uninstall $app.\"",
+            "    exit 1",
+            "}",
+            "",
             "if ($architecture -eq '64bit') {",
             "   \"$env:COMSPEC\" /c \"regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"\"",
             "}",
