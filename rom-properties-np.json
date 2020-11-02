@@ -15,7 +15,7 @@
             "if ($architecture -eq '64bit') {",
             "   sudo \"$env:COMSPEC\" /c \"regsvr32 /s \"$dir\\amd64\\rom-properties.dll\"\"",
             "}",
-			"sudo \"$env:COMSPEC\" /c \"regsvr32 /s \"$dir\\i386\\rom-properties.dll\"\""
+			"sudo \"$env:COMSPEC\" /c \"regsvr32 /s \"$dir\\i386\\rom-properties.dll\"\"",
 			"Stop-Process -Name explorer"
         ]
     },
@@ -24,7 +24,7 @@
             "if ($architecture -eq '64bit') {",
             "   sudo \"$env:COMSPEC\" /c \"regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"\"",
             "}",
-			"sudo \"$env:COMSPEC\" /c \"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"\""
+			"sudo \"$env:COMSPEC\" /c \"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"\"",
 			"Stop-Process -Name explorer"
         ]
     },
