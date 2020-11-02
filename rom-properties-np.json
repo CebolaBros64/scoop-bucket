@@ -13,9 +13,10 @@
 	"installer": {
         "script": [
             "if ($architecture -eq '64bit') {",
-            "   \"$env:COMSPEC\" /c \"regsvr32 /s \"$dir\\amd64\\rom-properties.dll\"\"",
+            "    regsvr32 /s \"$dir\\amd64\\rom-properties.dll\"",
             "}",
-			"\"$env:COMSPEC\" /c \"regsvr32 /s \"$dir\\i386\\rom-properties.dll\"\"",
+			"",
+			"regsvr32 /s \"$dir\\i386\\rom-properties.dll\"",
 			"Stop-Process -Name explorer"
         ]
     },
@@ -27,9 +28,9 @@
             "}",
             "",
             "if ($architecture -eq '64bit') {",
-            "   \"$env:COMSPEC\" /c \"regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"\"",
+            "    regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
             "}",
-			"\"$env:COMSPEC\" /c \"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"\"",
+			"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
 			"Stop-Process -Name explorer"
         ]
     },
