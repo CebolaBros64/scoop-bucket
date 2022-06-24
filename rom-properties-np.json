@@ -4,8 +4,8 @@
     "homepage": "https://github.com/GerbilSoft/rom-properties",
     "license": "GPL-2.0",
     "url": "https://github.com/GerbilSoft/rom-properties/releases/download/v1.9/rom-properties_1.9-windows.zip",
-    "": "",
-    "": "",
+
+
     "pre_install": [
         "if (!(is_admin)) {",
         "    error \"Administrator rights are required to install $app.\"",
@@ -28,8 +28,8 @@
     "post_install": [
         "explorer"
     ],
-    "": "",
-    "": "",
+
+    
     "pre_uninstall": [
         "if (!(is_admin)) {",
         "    error \"Administrator rights are required to install $app.\"",
@@ -50,8 +50,8 @@
     "post_uninstall": [
         "explorer"
     ],
-    "": "",
-    "": "",
+
+
     "architecture": {
         "64bit": {
             "bin": [
