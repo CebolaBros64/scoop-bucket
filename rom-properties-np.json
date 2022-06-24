@@ -4,6 +4,8 @@
     "homepage": "https://github.com/GerbilSoft/rom-properties",
     "license": "GPL-2.0",
     "url": "https://github.com/GerbilSoft/rom-properties/releases/download/v1.9/rom-properties_1.9-windows.zip",
+    "": "",
+    "": "",
     "pre_install": [
         "if (!(is_admin)) {",
         "    error \"Administrator rights are required to install $app.\"",
@@ -12,9 +14,6 @@
         "",
         "",
         "taskkill /F /IM explorer.exe"
-    ],
-    "post_install": [
-        "explorer"
     ],
 	"installer": {
         "script": [
@@ -26,24 +25,33 @@
 			"Stop-Process -Name explorer"
         ]
     },
+    "post_install": [
+        "explorer"
+    ],
+    "": "",
+    "": "",
+    "pre_uninstall": [
+        "if (!(is_admin)) {",
+        "    error \"Administrator rights are required to install $app.\"",
+        "    exit 1",
+        "}",
+        "",
+        "",
+        "taskkill /F /IM explorer.exe"
+    ],
     "uninstaller": {
         "script": [
-		    "if (!(is_admin)) {",
-            "    error \"Administrator rights are required to uninstall $app.\"",
-            "    exit 1",
-            "}",
-            "",
-            "",
-            "taskkill /F /IM explorer.exe",
-            "",
-            "",
             "if ($architecture -eq '64bit') {",
             "    regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
             "}",
-			"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
-			"explorer"
+			"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
         ]
     },
+    "post_uninstall": [
+        "explorer"
+    ],
+    "": "",
+    "": "",
     "architecture": {
         "64bit": {
             "bin": [
