@@ -39,18 +39,13 @@
         "}",
 
         "taskkill /F /IM explorer.exe",
-        "$lockedFile=\"$dir\\amd64\\rom-properties.dll\"",
-        "Get-Process | foreach{$processVar = $_;$_.Modules | foreach{if($_.FileName -eq $lockedFile){$processVar.Name + \" PID:\" + $processVar.id}}}"
+        "$lockedFile=\"$dir\"",
+        
+        "if ($architecture -eq '64bit') {",
+        "    regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
+        "}",
+        "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
     ],
-
-    "uninstaller": {
-        "script": [
-            "if ($architecture -eq '64bit') {",
-            "    regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
-            "}",
-			"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
-        ]
-    },
 
 
 
