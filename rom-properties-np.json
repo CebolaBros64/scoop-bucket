@@ -6,39 +6,42 @@
     "url": "https://github.com/GerbilSoft/rom-properties/releases/download/v1.9/rom-properties_1.9-windows.zip",
 
 
+
     "pre_install": [
         "if (!(is_admin)) {",
         "    error \"Administrator rights are required to install $app.\"",
         "    exit 1",
         "}",
-        "",
-        "",
+
         "taskkill /F /IM explorer.exe"
     ],
+
 	"installer": {
         "script": [
             "if ($architecture -eq '64bit') {",
             "    regsvr32 /s \"$dir\\amd64\\rom-properties.dll\"",
             "}",
-			"",
-			"regsvr32 /s \"$dir\\i386\\rom-properties.dll\"",
-			"Stop-Process -Name explorer"
+
+			"regsvr32 /s \"$dir\\i386\\rom-properties.dll\""
         ]
     },
+
     "post_install": [
         "explorer"
     ],
 
-    
+
+
     "pre_uninstall": [
         "if (!(is_admin)) {",
         "    error \"Administrator rights are required to install $app.\"",
         "    exit 1",
         "}",
-        "",
-        "",
-        "taskkill /F /IM explorer.exe"
+
+        "taskkill /F /IM explorer.exe",
+        "Start-Sleep -Seconds 5"
     ],
+
     "uninstaller": {
         "script": [
             "if ($architecture -eq '64bit') {",
@@ -47,9 +50,11 @@
 			"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
         ]
     },
+
     "post_uninstall": [
         "explorer"
     ],
+
 
 
     "architecture": {
