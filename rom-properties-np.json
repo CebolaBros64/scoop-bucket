@@ -47,7 +47,7 @@
                     "regsvr32 /u /s '$dir\\i386\\rom-properties.dll'"
                 ]
             },
-            "post_uninstall": "explorer",
+            "post_uninstall": "explorer"
         },
 
 
@@ -82,7 +82,7 @@
             "uninstaller": {
                 "script": "regsvr32 /u /s '$dir\\i386\\rom-properties.dll'"
             },
-            "post_uninstall": "explorer",
+            "post_uninstall": "explorer"
 
         }
     },
