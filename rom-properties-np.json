@@ -27,6 +27,7 @@
             "    exit 1",
             "}",
             "",
+            "Stop-Process -Name explorer",
             "if ($architecture -eq '64bit') {",
             "    regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
             "}",
