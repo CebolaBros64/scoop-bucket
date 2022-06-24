@@ -7,24 +7,53 @@
 
 
 
+    "architecture": {
+        "64bit": {
+            "bin": [
+                "rpcli.exe",
+                "rp-config.exe",
+                "amd64/rp-download.exe"
+            ],
+            "installer": {
+                "script": [
+                    "regsvr32 /s '$dir\\amd64\\rom-properties.dll'",
+                    "regsvr32 /s '$dir\\i386\\rom-properties.dll'"
+                ]
+            },
+            "uninstaller": {
+                "script": [
+                    "regsvr32 /u /s '$dir\\amd64\\rom-properties.dll'",
+                    "regsvr32 /u /s '$dir\\i386\\rom-properties.dll'"
+                ]
+            }
+        },
+
+        "32bit": {
+            "bin": [
+                "rpcli.exe",
+                "rp-config.exe",
+                "i386/rp-download.exe"
+            ],
+            "installer": {
+                "script": "regsvr32 /s '$dir\\i386\\rom-properties.dll'"
+            },
+            "uninstaller": {
+                "script": "regsvr32 /u /s '$dir\\i386\\rom-properties.dll'"
+            }
+        }
+    },
+
+
+
+
     "pre_install": [
         "if (!(is_admin)) {",
-        "    error \"Administrator rights are required to install $app.\"",
+        "    error 'Administrator rights are required to install $app.'",
         "    exit 1",
         "}",
 
-        "taskkill /F /IM explorer.exe"
+        "taskkill /f /im explorer.exe | Out-Null"
     ],
-
-	"installer": {
-        "script": [
-            "if ($architecture -eq '64bit') {",
-            "    regsvr32 /s \"$dir\\amd64\\rom-properties.dll\"",
-            "}",
-
-			"regsvr32 /s \"$dir\\i386\\rom-properties.dll\""
-        ]
-    },
 
     "post_install": [
         "explorer"
@@ -32,39 +61,22 @@
 
 
 
+
     "pre_uninstall": [
         "if (!(is_admin)) {",
-        "    error \"Administrator rights are required to install $app.\"",
+        "    error 'Administrator rights are required to uninstall $app.'",
         "    exit 1",
         "}",
 
-        "taskkill /F /IM explorer.exe",
-        "$lockedFile=\"$dir\"",
-        
-        "if ($architecture -eq '64bit') {",
-        "    regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
-        "}",
-        "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
+        "taskkill /f /im explorer.exe | Out-Null"
+    ],
+
+    "post_uninstall": [
+        "explorer"
     ],
 
 
 
-    "architecture": {
-        "64bit": {
-            "bin": [
-                "rpcli.exe",
-                "rp-config.exe",
-                "amd64/rp-download.exe"
-            ]
-        },
-        "32bit": {
-            "bin": [
-                "rpcli.exe",
-                "rp-config.exe",
-                "i386/rp-download.exe"
-            ]
-        }
-    },
     "checkver": {
         "github": "https://github.com/GerbilSoft/rom-properties/"
     },
