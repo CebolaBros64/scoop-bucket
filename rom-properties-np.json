@@ -43,7 +43,7 @@
                     "regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
                     "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
                     
-                    "$nid = (Get-Process explorer).id",
+                    "$nid = (Get-Process explorer).id"
                     "taskkill /f /pid $nid | Out-Null",
                     "Wait-Process -Id $nid"
                 ]
@@ -83,7 +83,7 @@
                 "script": [
                     "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
                     
-                    "$nid = (Get-Process explorer).id",
+                    "$nid = (Get-Process explorer).id"
                     "taskkill /f /pid $nid | Out-Null",
                     "Wait-Process -Id $nid"
                 ]
