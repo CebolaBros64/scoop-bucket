@@ -20,14 +20,13 @@
                 "if (!(is_admin)) {",
                 "    error 'Administrator rights are required to install $app.'",
                 "    exit 1",
-                "}",
-
-                "taskkill /f /im explorer.exe | Out-Null"
+                "}"
             ],
             "installer": {
                 "script": [
                     "regsvr32 /s \"$dir\\amd64\\rom-properties.dll\"",
-                    "regsvr32 /s \"$dir\\i386\\rom-properties.dll\""
+                    "regsvr32 /s \"$dir\\i386\\rom-properties.dll\"",
+                    "taskkill /f /im explorer.exe | Out-Null"
                 ]
             },
             "post_install": "explorer",
@@ -37,15 +36,13 @@
                 "if (!(is_admin)) {",
                 "    error 'Administrator rights are required to uninstall $app.'",
                 "    exit 1",
-                "}",
-
-                "taskkill /f /im explorer.exe | Out-Null",
-                "Start-Sleep -Seconds 5"
+                "}"
             ],
             "uninstaller": {
                 "script": [
                     "regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
-                    "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
+                    "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
+                    "taskkill /f /im explorer.exe | Out-Null"
                 ]
             },
             "post_uninstall": "explorer"
@@ -63,12 +60,13 @@
                 "if (!(is_admin)) {",
                 "    error 'Administrator rights are required to install $app.'",
                 "    exit 1",
-                "}",
-
-                "taskkill /f /im explorer.exe | Out-Null"
+                "}"
             ],
             "installer": {
-                "script": "regsvr32 /s \"$dir\\i386\\rom-properties.dll\""
+                "script": [
+                    "regsvr32 /s \"$dir\\i386\\rom-properties.dll\"",
+                    "taskkill /f /im explorer.exe | Out-Null"
+                ]
             },
             "post_install": "explorer",
 
@@ -76,13 +74,13 @@
                 "if (!(is_admin)) {",
                 "    error 'Administrator rights are required to uninstall $app.'",
                 "    exit 1",
-                "}",
-
-                "taskkill /f /im explorer.exe | Out-Null",
-                "Start-Sleep -Seconds 5"
+                "}"
             ],
             "uninstaller": {
-                "script": "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
+                "script": [
+                    "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
+                    "taskkill /f /im explorer.exe | Out-Null"
+                ]
             },
             "post_uninstall": "explorer"
 
