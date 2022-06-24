@@ -39,7 +39,8 @@
                 "    exit 1",
                 "}",
 
-                "taskkill /f /im explorer.exe | Out-Null"
+                "taskkill /f /im explorer.exe | Out-Null",
+                "Start-Sleep -Seconds 5"
             ],
             "uninstaller": {
                 "script": [
@@ -77,7 +78,8 @@
                 "    exit 1",
                 "}",
 
-                "taskkill /f /im explorer.exe | Out-Null"
+                "taskkill /f /im explorer.exe | Out-Null",
+                "Start-Sleep -Seconds 5"
             ],
             "uninstaller": {
                 "script": "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
