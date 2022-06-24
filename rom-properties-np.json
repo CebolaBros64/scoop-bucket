@@ -39,7 +39,7 @@
         "}",
 
         "taskkill /F /IM explorer.exe",
-        "Start-Sleep -Seconds 5"
+        "explorer"
     ],
 
     "uninstaller": {
@@ -50,10 +50,6 @@
 			"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
         ]
     },
-
-    "post_uninstall": [
-        "explorer"
-    ],
 
 
 
