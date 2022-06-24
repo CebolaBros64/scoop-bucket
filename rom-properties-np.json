@@ -1,9 +1,9 @@
 {
-    "version": "1.7.3",
+    "version": "1.9",
     "description": "ROM Properties Page shell extension",
     "homepage": "https://github.com/GerbilSoft/rom-properties",
     "license": "GPL-2.0",
-    "url": "https://github.com/GerbilSoft/rom-properties/releases/download/v1.7.3/rom-properties_1.7.3-windows.zip",
+    "url": "https://github.com/GerbilSoft/rom-properties/releases/download/v1.9/rom-properties_1.9-windows.zip",
     "pre_install": [
         "if (!(is_admin)) {",
         "    error \"Administrator rights are required to install $app.\"",
