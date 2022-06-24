@@ -8,7 +8,13 @@
         "if (!(is_admin)) {",
         "    error \"Administrator rights are required to install $app.\"",
         "    exit 1",
-        "}"
+        "}",
+        "",
+        "",
+        "taskkill /F /IM explorer.exe"
+    ],
+    "post_install": [
+        "explorer"
     ],
 	"installer": {
         "script": [
