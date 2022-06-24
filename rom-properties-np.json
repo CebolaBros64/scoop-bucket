@@ -42,10 +42,8 @@
                 "script": [
                     "regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
                     "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
-                    
-                    "$nid = (Get-Process explorer).id"
-                    "taskkill /f /pid $nid | Out-Null",
-                    "Wait-Process -Id $nid"
+                    "taskkill /f /im explorer.exe | Out-Null",
+                    "Start-Sleep -Seconds 1.5"
                 ]
             },
             "post_uninstall": "explorer"
@@ -82,10 +80,8 @@
             "uninstaller": {
                 "script": [
                     "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
-                    
-                    "$nid = (Get-Process explorer).id"
-                    "taskkill /f /pid $nid | Out-Null",
-                    "Wait-Process -Id $nid"
+                    "taskkill /f /im explorer.exe | Out-Null",
+                    "Start-Sleep -Seconds 1.5"
                 ]
             },
             "post_uninstall": "explorer"
