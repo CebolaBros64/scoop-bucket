@@ -27,12 +27,23 @@
             "    exit 1",
             "}",
             "",
-            "Stop-Process -Name explorer",
+            "",
+            "$code = @'",
+            "[DllImport('user32.dll', EntryPoint = 'PostMessage', CharSet =  CharSet.Unicode)] public static extern IntPtr PostMessage(IntPtr hWnd, int Msg, uint wParam, string lParam);",
+            "[DllImport('user32.dll', EntryPoint = 'FindWindowW', CharSet = CharSet.Unicode)] public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);",
+            "'@",
+            "",
+            "$myAPI = Add-Type -MemberDefinition $code -Name myAPI -PassThru",
+            "$myAPI::PostMessage($myAPI::FindWindow('Shell_TrayWnd', $Null),1460,0,0)",
+            "",
+            "Start-Sleep -Seconds 10",
+            "",
+            "",
             "if ($architecture -eq '64bit') {",
             "    regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
             "}",
 			"regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\"",
-			"Stop-Process -Name explorer"
+			"explorer"
         ]
     },
     "architecture": {
