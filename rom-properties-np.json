@@ -26,8 +26,8 @@
             ],
             "installer": {
                 "script": [
-                    "regsvr32 /s '$dir\\amd64\\rom-properties.dll'",
-                    "regsvr32 /s '$dir\\i386\\rom-properties.dll'"
+                    "regsvr32 /s \"$dir\\amd64\\rom-properties.dll\"",
+                    "regsvr32 /s \"$dir\\i386\\rom-properties.dll\""
                 ]
             },
             "post_install": "explorer",
@@ -43,8 +43,8 @@
             ],
             "uninstaller": {
                 "script": [
-                    "regsvr32 /u /s '$dir\\amd64\\rom-properties.dll'",
-                    "regsvr32 /u /s '$dir\\i386\\rom-properties.dll'"
+                    "regsvr32 /u /s \"$dir\\amd64\\rom-properties.dll\"",
+                    "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
                 ]
             },
             "post_uninstall": "explorer"
@@ -67,7 +67,7 @@
                 "taskkill /f /im explorer.exe | Out-Null"
             ],
             "installer": {
-                "script": "regsvr32 /s '$dir\\i386\\rom-properties.dll'"
+                "script": "regsvr32 /s \"$dir\\i386\\rom-properties.dll\""
             },
             "post_install": "explorer",
 
@@ -80,7 +80,7 @@
                 "taskkill /f /im explorer.exe | Out-Null"
             ],
             "uninstaller": {
-                "script": "regsvr32 /u /s '$dir\\i386\\rom-properties.dll'"
+                "script": "regsvr32 /u /s \"$dir\\i386\\rom-properties.dll\""
             },
             "post_uninstall": "explorer"
 
