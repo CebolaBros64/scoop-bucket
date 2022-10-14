@@ -16,9 +16,6 @@
         "github": "https://github.com/BleuBleu/FamiStudio"
     },
     "autoupdate": {
-
-        "url": "https://github.com/superpowers/superpowers-app/releases/download/v$version/",
-        "url": "https://github.com/BleuBleu/FamiStudio/releases/download/$version/FamiStudio$cleanVersion-WinPortableExe.zip",
-        "regex": ""
+        "url": "https://github.com/BleuBleu/FamiStudio/releases/download/$version/FamiStudio$cleanVersion-WinPortableExe.zip"
     }
 }

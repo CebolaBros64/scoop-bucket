@@ -1,0 +1,30 @@
+{
+    "version": "3.5.0",
+    "description": "A small, open and free development kit for the Nintendo SNES",
+    "homepage": "http://www.portabledev.com/jeux/supernes/pvsneslib/",
+    "license": "Unknown",
+    "url": "https://github.com/BleuBleu/FamiStudio/releases/download/3.0.0/FamiStudio300-WinPortableExe.zip",
+    "hash": "4C95241B35B4334377BD5ECF73EAE79B6B89C3A6AC688396082D4C01809B6F55",
+    "bin": "FamiStudio.exe",
+    "shortcuts": [
+        [
+            "FamiStudio.exe",
+            "FamiStudio"
+        ]
+    ],
+    "depends": [
+        "msys -a 32bit",
+        "gcc-msys -a 32bit"
+    ],
+    "checkver": {
+        "github": "https://github.com/alekmaul/pvsneslib"
+    },
+    "autoupdate": {
+        "url": "https://github.com/alekmaul/pvsneslib/releases/download/$version/pvsneslib_32b_windows.zip"
+    }
+    required dependencies
+
+    msys if you are on Windows environment          -- scoop install msys -a 32bit
+                                                    -- scoop install mingw -a 32bit
+    GCC for some tools                              -- scoop install gcc-msys -a 32bit
+}
